@@ -1,0 +1,8 @@
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Client\bin\Debug\TcpChat_Client.exe.config
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Client\bin\Debug\TcpChat_Client.exe
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Client\bin\Debug\TcpChat_Client.pdb
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Client\obj\Debug\TcpChat_Client.csproj.AssemblyReference.cache
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Client\obj\Debug\TcpChat_Client.csproj.SuggestedBindingRedirects.cache
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Client\obj\Debug\TcpChat_Client.csproj.CoreCompileInputs.cache
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Client\obj\Debug\TcpChat_Client.exe
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Client\obj\Debug\TcpChat_Client.pdb
