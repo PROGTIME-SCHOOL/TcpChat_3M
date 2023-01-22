@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Sockets;
 using System.Text;                  // для кодирования
 using System.Threading.Tasks;
+using System.Xml.Serialization;     // xml
+
+using Newtonsoft.Json;              // json
+
 
 namespace TcpChat_Client
 {
@@ -52,7 +57,45 @@ namespace TcpChat_Client
             while (true)
             {
                 string message = Console.ReadLine();   // lock
-                SendMessage(socket, message);
+
+                if (message == "platypus")
+                {
+                    Platypus platypus = new Platypus()
+                    {
+                        Size = 2, Color = "CoolBrown"
+                    };
+
+                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(Platypus));
+
+                    MemoryStream stream = new MemoryStream();   // создали КЭШ
+
+                    xmlSerializer.Serialize(stream, platypus);
+                    
+                    stream.Position = 0;
+                    //Platypus platypus2 = xmlSerializer.Deserialize(stream) as Platypus;
+
+                    byte[] bytes = stream.ToArray();
+
+                    // отправляем утконоса
+                    //SendMessage(socket, message);
+                    socket.Send(bytes);
+                }
+                if (message == "dumpling")
+                {
+                    Dumpling dumpling = new Dumpling()
+                    {
+                        IsFried = true, Name = "Cтрелка",
+                        Description = "Очень вкусный, насыщенный, странно себя ведет"
+                    };
+
+                    string text = JsonConvert.SerializeObject(dumpling);
+                }
+                else
+                {
+                    SendMessage(socket, message);
+                }
+
+                
             }
         }
 
