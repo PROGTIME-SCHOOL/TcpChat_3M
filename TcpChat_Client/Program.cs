@@ -89,6 +89,8 @@ namespace TcpChat_Client
                     };
 
                     string text = JsonConvert.SerializeObject(dumpling);
+
+                    SendMessage(socket, text);
                 }
                 else
                 {
