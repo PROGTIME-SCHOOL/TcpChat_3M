@@ -1,0 +1,9 @@
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Library\bin\Debug\TcpChat_Library.dll
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Library\bin\Debug\TcpChat_Library.pdb
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Library\obj\Debug\TcpChat_Library.csproj.AssemblyReference.cache
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Library\obj\Debug\TcpChat_Library.csproj.CoreCompileInputs.cache
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Library\obj\Debug\TcpChat_Library.dll
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Library\obj\Debug\TcpChat_Library.pdb
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Library\bin\Debug\Newtonsoft.Json.dll
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Library\bin\Debug\Newtonsoft.Json.xml
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Library\obj\Debug\TcpChat_Library.csproj.CopyComplete

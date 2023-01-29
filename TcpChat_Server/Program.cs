@@ -13,6 +13,9 @@ using System.Xml.Serialization;
 
 using Newtonsoft.Json;
 
+using TcpChat_Library;
+using TcpChat_Library.Models;
+
 namespace TcpChat_Server
 {
     internal class Program
@@ -68,17 +71,11 @@ namespace TcpChat_Server
             Console.ReadLine();
         }
 
-        public static void SendMessage(Socket socket, string message)
-        {
-            byte[] bytes_answer = Encoding.Unicode.GetBytes(message);
-            socket.Send(bytes_answer);
-        }
-
         public static void SendMessageToAllUsers(string message)
         {
             foreach (var user in сlientSockets)
             {
-                SendMessage(user.Socket, message);
+                Utility.SendMessage(user.Socket, message);
             }
         }
 
@@ -93,26 +90,19 @@ namespace TcpChat_Server
                 SendMessageToAllUsers(user.Name + ", " + sendMessage);
             }
         }
-   
-        public static string ReceiveMessage(Socket socket)
-        {
-            byte[] bytes = new byte[1024];
-            int num_bytes = socket.Receive(bytes);
-            return Encoding.Unicode.GetString(bytes, 0, num_bytes);
-        }
 
         public static void ReceiveMessageForManager(object socketObj)
         {
             User user = (User)socketObj;
 
             // получаем данные перед началом работы
-            string name = ReceiveMessage(user.Socket);
+            string name = Utility.ReceiveMessage(user.Socket);
             user.Name = name;
 
             // получаем сообзения от клиента
             while (true)
             {
-                messageFromUser = ReceiveMessage(user.Socket);
+                messageFromUser = Utility.ReceiveMessage(user.Socket);
 
                 Console.WriteLine("[" + name + "]: " + messageFromUser);
 
@@ -120,26 +110,23 @@ namespace TcpChat_Server
                 // ProcessCommandWord(user.Socket, messageFromUser);
                 // ProcessCommandCoding(user.Socket, messageFromUser);
 
-                ProcessCommandJson(user.Socket, messageFromUser);
+                Utility.JsonDeserialize(messageFromUser);
 
 
                 #region Receive XML
 
-                /*
-                byte[] bytes = new byte[1024];
-                int num_bytes = user.Socket.Receive(bytes);
+                
+                //byte[] bytes = new byte[1024];
+                //int num_bytes = user.Socket.Receive(bytes);
 
-                ProcessCommandXML(user.Socket, bytes, num_bytes);
-                */
+                //ProcessCommandXML(user.Socket, bytes, num_bytes);
+                
 
                 #endregion
             }
         }
 
-        private static void ProcessCommandJson(Socket socket, string text)
-        {
-            Dumpling dumpling = JsonConvert.DeserializeObject<Dumpling>(text);
-        }
+        
 
         private static void ProcessCommandXML(Socket socket, byte[] bytes, int num_bytes)
         {
@@ -158,7 +145,7 @@ namespace TcpChat_Server
             {
                 Console.WriteLine("Пользователь прислал команду color");
 
-                SendMessage(socket, "Сервер принял вашу команду!");
+                Utility.SendMessage(socket, "Сервер принял вашу команду!");
             }
         }
 

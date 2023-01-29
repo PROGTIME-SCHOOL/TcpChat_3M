@@ -9,3 +9,5 @@ C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Client\obj\Debug\TcpChat_Clie
 C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Client\bin\Debug\Newtonsoft.Json.dll
 C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Client\bin\Debug\Newtonsoft.Json.xml
 C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Client\obj\Debug\TcpChat_Client.csproj.CopyComplete
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Client\bin\Debug\TcpChat_Library.dll
+C:\Users\viosagmir\source\repos\TcpChat_3M\TcpChat_Client\bin\Debug\TcpChat_Library.pdb

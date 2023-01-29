@@ -11,6 +11,8 @@ using System.Xml.Serialization;     // xml
 
 using Newtonsoft.Json;              // json
 
+using TcpChat_Library;
+using TcpChat_Library.Models;
 
 namespace TcpChat_Client
 {
@@ -36,7 +38,7 @@ namespace TcpChat_Client
             // работа с именем клиента
             Console.Write("Пожалуйста, введите ваше имя: ");
             string name = Console.ReadLine();   
-            SendMessage(socket_sender, name);
+            Utility.SendMessage(socket_sender, name);
 
 
             Action<Socket> taskSendMessage = SendMessageForTask;
@@ -65,20 +67,7 @@ namespace TcpChat_Client
                         Size = 2, Color = "CoolBrown"
                     };
 
-                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(Platypus));
-
-                    MemoryStream stream = new MemoryStream();   // создали КЭШ
-
-                    xmlSerializer.Serialize(stream, platypus);
-                    
-                    stream.Position = 0;
-                    //Platypus platypus2 = xmlSerializer.Deserialize(stream) as Platypus;
-
-                    byte[] bytes = stream.ToArray();
-
-                    // отправляем утконоса
-                    //SendMessage(socket, message);
-                    socket.Send(bytes);
+                    Utility.XmlSerializeAndSend(platypus, socket);
                 }
                 if (message == "dumpling")
                 {
@@ -88,13 +77,11 @@ namespace TcpChat_Client
                         Description = "Очень вкусный, насыщенный, странно себя ведет"
                     };
 
-                    string text = JsonConvert.SerializeObject(dumpling);
-
-                    SendMessage(socket, text);
+                    Utility.JsonSerializeAndSend(dumpling, socket);
                 }
                 else
                 {
-                    SendMessage(socket, message);
+                    Utility.SendMessage(socket, message);
                 }
 
                 
@@ -105,22 +92,9 @@ namespace TcpChat_Client
         {
             while (true)
             {
-                string answer = ReceiveMessage(socket);
+                string answer = Utility.ReceiveMessage(socket);
                 Console.WriteLine(answer);
             }
-        }
-
-        public static void SendMessage(Socket socket, string message)
-        {
-            byte[] bytes_answer = Encoding.Unicode.GetBytes(message);
-            socket.Send(bytes_answer);
-        }
-
-        public static string ReceiveMessage(Socket socket)
-        {
-            byte[] bytes = new byte[1024];
-            int num_bytes = socket.Receive(bytes);
-            return Encoding.Unicode.GetString(bytes, 0, num_bytes);
         }
     }
 }
