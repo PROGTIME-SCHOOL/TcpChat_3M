@@ -8,10 +8,16 @@
         Title="Tcp Controller" Height="250" Width="400">
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Click="ButtonLeft_Click" Width="100" Height="40" Content="LEFT" 
+            <Button Click="ButtonLeft_Click" Width="60" Height="40" Content="LEFT" 
                     Margin="10"/>
             
-            <Button Click="ButtonRight_Click" Width="100" Height="40" Content="RIGHT" 
+            <Button Click="ButtonRight_Click" Width="60" Height="40" Content="RIGHT" 
+                    Margin="10"/>
+
+            <Button Click="ButtonUp_Click" Width="60" Height="40" Content="UP" 
+                    Margin="10"/>
+
+            <Button Click="ButtonDown_Click" Width="60" Height="40" Content="DOWN" 
                     Margin="10"/>
         </StackPanel>
 

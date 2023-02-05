@@ -41,6 +41,7 @@ namespace Tcp_Receiver
             lblInfo.Content = server.IsConnected;
 
             Canvas.SetLeft(rectPlayer, server.X);
+            Canvas.SetTop(rectPlayer, server.Y);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

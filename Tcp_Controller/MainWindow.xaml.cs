@@ -36,12 +36,22 @@ namespace Tcp_Controller
 
         private void ButtonLeft_Click(object sender, RoutedEventArgs e)
         {
-
+            client.MoveLeft();
         }
 
         private void ButtonRight_Click(object sender, RoutedEventArgs e)
         {
             client.MoveRight();
+        }
+
+        private void ButtonDown_Click(object sender, RoutedEventArgs e)
+        {
+            client.MoveDown();
+        }
+
+        private void ButtonUp_Click(object sender, RoutedEventArgs e)
+        {
+            client.MoveUp();
         }
     }
 }

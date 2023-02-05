@@ -10,5 +10,9 @@ namespace TcpChat_Library.Models
     {
         public int X { get; set; }
         public int Y { get; set; }
+
+        public Weapon Weapon { get; set; }
+
+        public Item[] Items { get; set; }
     }
 }

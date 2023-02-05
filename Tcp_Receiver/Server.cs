@@ -20,6 +20,8 @@ namespace Tcp_Receiver
 
         public int X { get; set; }
 
+        public int Y { get; set; }
+
         public Server()
         {
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream,
@@ -52,6 +54,7 @@ namespace Tcp_Receiver
                 Hero hero = JsonConvert.DeserializeObject<Hero>(text);
 
                 X = hero.X;
+                Y = hero.Y;
             }
         }
     }
